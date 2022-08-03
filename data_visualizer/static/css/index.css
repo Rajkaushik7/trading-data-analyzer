@@ -1,0 +1,157 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  zoom: 85%;
+  font-family: 'arial';
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0px;
+  background-size: cover;
+}
+
+input, select{
+  outline: none;
+  border: none;
+  padding: 4px 6px;
+  display: inline-block;
+  background-color: white;
+  border-radius: 6px;
+}
+
+form{
+  margin: 0;
+  padding: 0;
+}
+
+.form-container{
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  height: auto;
+  padding: 20px 40px;
+  background-color: #04AA6D;
+}
+
+.submit, #add-strike, .reset{
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  background-color: orange;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+}
+
+.reset{
+  background-color: red;
+}
+
+.remove-strike{
+  border-radius: 50%;
+  border: none;
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+}
+#add-strike{
+  background-color: rgb(20, 37, 115);
+}
+
+.submit:hover, .reset:hover{
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: rgb(252, 252, 0);
+}
+
+#add-strike:hover{
+  color: black;
+  font-weight: 600;
+  background-color: rgb(252, 252, 0);
+}
+
+.data-container{
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  overflow: auto;
+  margin: auto;
+  margin-top:32px;
+  height: 80%;
+  width: 95%;
+  margin-bottom: 100px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  display: block;
+  position: absolute;
+  display: none;
+  left: 50%;
+  margin-left: -40px;
+  width: 80px;
+  height: 80px;
+  margin-top: 200px;
+  animation: rotation 2s infinite linear;
+  background: none;
+}
+
+table{
+  width:100%;
+}
+
+.d-all{
+  display: block;
+}
+
+button{
+  cursor: pointer;
+}
+
+#strike-wrapper{
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.strikes-container{
+  margin-bottom: 6px;
+}
+
+label{
+  margin-left: 20px;
+  margin-right: 4px;
+  font-weight: 600;
+}
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}
+
+.atm{
+  margin-left: 29px;
+}
+
+.action{
+  margin-left: 4px;
+}

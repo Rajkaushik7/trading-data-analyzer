@@ -1,0 +1,73 @@
+{% load static %}
+{% csrf_token %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" >
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="my-form">
+        <select required class="option"  name="path">
+          <option selected value="nifty">Nifty</option>
+          <option value="bank_nifty">Bank Nifty</option>
+        </select>
+        <label>Start date</label>
+        <input required name="start_date" type="date" />
+        <label>End date</label>
+        <input required name="end_date" type="date" />
+        <label>Start time</label>
+        <input min="09:15" max="15:30" required name="start_time" type="time" />
+        <label>End time</label>
+        <input min="09:15" max="15:30" required name="end_time" type="time" />
+        <label>OHLC</label>
+        <select required class="option"  name="ohlc">
+          <option selected value="high">High</option>
+          <option value="open">Open</option>
+          <option value="low">Low</option>
+          <option value="close">Close</option>
+        </select>
+        <div id="strike-wrapper">
+          <div class="strikes-container">
+            <label>Option</label>
+            <select required class="option"  name="option">
+               <option value="PE">PE</option>
+               <option selected value="CE">CE</option>
+            </select>
+            <label>ATM</label><input required class="strike"  name="strike" type="number" />
+            <label>Lot</label><input required value="1" class="strike"  name="lot" type="number" />
+            <select required name="action">
+              <option selected value="buy">Buy</option>
+              <option value="sell">Sell</option>
+            </select>
+         </div>
+        </div>
+        <button type="button" id="add-strike">Add Strike</button>
+        <button id="reset" class="reset" type="button">Reset</button>
+        <input class="submit" type="submit" />
+      </form>
+    </div>
+    <div class="data-container">
+      <img class="spinner" src="{% static 'images/spinner.svg' %}"/>
+      <table class="table">
+        <thead id="data-heads" class="thead-dark">
+        </thead>
+          <tbody id="data-feed">
+          </tbody>
+      </table>
+    </div>
+
+    <div>
+      <div class="data-container">
+      <table class="table">
+        <thead id="calc-data-heads" class="thead-dark">
+        </thead>
+          <tbody id="calc-data-feed">
+          </tbody>
+      </table>
+      </div>
+    </div>
+  </body>
+</html>
