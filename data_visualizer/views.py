@@ -27,12 +27,12 @@ def fetch_data(request):
     # t = t.split(',') 
     # u=['09:15','11:17']
     # f='high'
-    try:
-        df=pd.read_csv('/media/raj/0acf45d3-ed51-4a05-8434-dfa422be6129/data/' + path + '/' +b[:4]+'/new.csv')
-        df2=pd.read_csv('/media/raj/0acf45d3-ed51-4a05-8434-dfa422be6129/data/' + path + '/' +b[:4]+ '/.' + d_file + '.csv')
-        df3=pd.read_csv('/media/raj/0acf45d3-ed51-4a05-8434-dfa422be6129/data/' + path + '/' +b[:4]+'/OHLC.csv',usecols = [f,'date','time'])
-    except:
-        return HttpResponse('{"error":"File not found"}')
+    # try:
+    df=pd.read_csv('/home/raj/' + path + '/' +b[:4]+'/new.csv')
+    df2=pd.read_csv('/home/raj/' + path + '/' +b[:4]+ '/' + d_file + '.csv')
+    df3=pd.read_csv('/home/raj/' + path + '/' +b[:4]+'/OHLC.csv',usecols = [f,'date','time'])
+    # except:
+    #     return HttpResponse('{"error":"File not found"}')
     df9=pd.DataFrame()
     df10=pd.DataFrame()
     for j in range(0, len(t), 2):

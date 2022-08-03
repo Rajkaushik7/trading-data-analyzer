@@ -38,7 +38,7 @@ form{
   color: white;
   height: auto;
   padding: 20px 40px;
-  background-color: #04AA6D;
+  background-color: #52b3d2;;
 }
 
 .submit, #add-strike, .reset{
@@ -82,11 +82,10 @@ form{
 
 .data-container{
   position: relative;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
   overflow: auto;
   margin: auto;
   margin-top:32px;
-  height: 80%;
+  max-height: 80%;
   width: 95%;
   margin-bottom: 100px;
 }
@@ -100,10 +99,18 @@ form{
   }
 }
 
+.backdrop{
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 .spinner {
   display: block;
   position: absolute;
-  display: none;
   left: 50%;
   margin-left: -40px;
   width: 80px;
@@ -154,4 +161,64 @@ label{
 
 .action{
   margin-left: 4px;
+}
+
+td{
+  color: #FFFFBF;
+}
+
+
+
+.result-red > .heading{
+  color:red;
+  background-color: #fa9e89;
+  border: 2px solid red;
+}
+.result-red > .content{
+  border: 1px solid red;
+}
+
+
+.result-green > .heading{
+  color:green;
+  background-color: #baf7c3;
+  border: 2px solid green;
+}
+.result-green > .content{
+  border: 1px solid green;
+}
+
+.result-yellow > .heading{
+  color:#adad03;
+  background-color: #ffffa6;
+  border: 2px solid #adad03;
+}
+.result-yellow > .content{
+  border: 1px solid #adad03;
+}
+
+.result-tile{
+  display: inline-block;
+  min-width: 200px;
+  text-align: center;
+}
+.result-tile > .heading{
+  padding: 4px;
+  font-weight: 600;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.result-tile > .content{
+  padding: 16px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top: none;
+}
+
+.tile-container{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding: 40px;
 }

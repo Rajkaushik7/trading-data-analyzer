@@ -1,4 +1,17 @@
-var spinner = '<div class="spinner"><div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div></div>';
+function countThursday(endDate, startDate){
+    console.log('in')
+    end = new Date(2020,1,21)
+    start = new Date(2020,1,31)
+    if(end <= start)return; //avoid infinite loop;
+        for(var count = {sun:0, sat:0}; start < end; start.setDate(start.getDate() + 1)){
+        if(start.getDay() == 0)count.sun++;
+        else if(start.getDay() == 6)count.sat++;
+    }
+    console.log(count,'done');
+}
+console.log("ok")
+countThursday()
+var thursdays = 
 $(function(){
     $("#add-strike").on('click', function(){
         addStrike();
@@ -33,7 +46,7 @@ $(function(){
             name: "legs",
             value: strikes
         })
-        $('.spinner').addClass('d-all');
+        $('.backdrop').addClass('d-all');
         $.post('/data_visualizer/fetch_data', data).then(function(response){
             let res = JSON.parse(response);
             if(res.hasOwnProperty('error')){
@@ -43,7 +56,7 @@ $(function(){
             console.log(res, typeof(res),res.hasOwnProperty('error'))
             populate_data(res);
             populate_map_data(data, res);
-            $('.spinner').removeClass('d-all');
+            $('.backdrop').removeClass('d-all');
             allowRequest = true;
         });
     });
@@ -57,7 +70,6 @@ $(function(){
     })
 })
 
-$('.data-container').append(spinner)
 function populate_data(data){
     let heads = data.columns
     $('#data-heads').append('<th>Date</th>')
@@ -122,6 +134,7 @@ function populate_map_data(formData, response) {
 }
 
 function visualize_calculated_data(data, response) {
+    thursdays = 
     $('#calc-data-feed').empty();
     $('#calc-data-heads').empty();
     thead = $('#calc-data-heads');
@@ -172,4 +185,6 @@ function visualize_calculated_data(data, response) {
             $('#calc-data-feed').append('<td class="green">' + finalVal + '</td>');
         $('#data-feed').append('</tr>');
     }
+
+
 }
